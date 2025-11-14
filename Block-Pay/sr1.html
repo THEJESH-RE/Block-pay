@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquirer Settlement Bank</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            if (username === "admin" && password === "password") {
+                window.location.href = 'sr.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('transactions').style.display = 'none';
+            document.getElementById('notifications').style.display = 'none';
+        }
+
+        function showTransactions() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('transactions').style.display = 'block';
+            document.getElementById('notifications').style.display = 'none';
+        }
+
+        function showNotifications() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('transactions').style.display = 'none';
+            document.getElementById('notifications').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Hackindia Settlement Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="#login" onclick="showLogin()">Login</a></li>
+                <li><a href="merchants.html">Merchants List</a></li>
+                <li><a href="#transactions" onclick="showTransactions()">Transactions</a></li>
+                <li><a href="#notifications" onclick="showNotifications()">Notifications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="event.preventDefault(); login();">
+                <center>
+                    <input type="text" id="username" placeholder="username" required>
+                    <input type="password" id="password" placeholder="password" required>
+                    <button type="submit">Login</button>
+                </center>
+            </form>
+        </section>
+
+        <section id="transactions" style="display: none;">
+            <h2>Merchant's Transactions</h2>
+            <p>Details about merchant transactions will be displayed here.</p>
+        </section>
+
+        <section id="notifications" style="display: none;">
+            <h2>Notifications</h2>
+            <p>Notifications from the bank will be displayed here.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Acquirer Settlement Bank</p>
+        </footer>
+    </main>
+</body>
+</html>
